@@ -1,5 +1,7 @@
 # FxRatesWidget
 
+Live Demo: [Click here for the live demo.](https://fxrates.renzbarnedo.com)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
 ## Development server
