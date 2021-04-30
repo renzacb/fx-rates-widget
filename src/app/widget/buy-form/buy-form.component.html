@@ -1,0 +1,104 @@
+<div class="container" *ngIf="uiIsShowing">
+  <form
+    [formGroup]="forexForm"
+    (ngSubmit)="transact()"
+    class="mat-elevation-z8"
+  >
+    <h1>Forex Calculator</h1>
+    <div class="from-currency">
+      <span class="mat-caption">Currency 1</span>
+      <div class="query">
+        <mat-form-field class="currency" appearance="outline">
+          <mat-label>Currency</mat-label>
+          <mat-select
+            formControlName="fromCurrency"
+            (selectionChange)="convertRate()"
+          >
+            <mat-option *ngFor="let currency of currencies" [value]="currency">
+              {{ currency.currency }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="amount" appearance="outline">
+          <mat-label>Amount</mat-label>
+          <input
+            formControlName="fromAmount"
+            (keyup)="convertRate()"
+            matInput
+            type="number"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="to-currency">
+      <span class="mat-caption">Currency 2</span>
+      <div class="result">
+        <mat-form-field appearance="outline" class="currency">
+          <mat-label>Currency</mat-label>
+          <mat-select
+            formControlName="toCurrency"
+            (selectionChange)="convertRate()"
+          >
+            <mat-option *ngFor="let currency of currencies" [value]="currency">
+              {{ currency.currency }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="amount">
+          <mat-label>Amount</mat-label>
+          <input
+            formControlName="toAmount"
+            (keyup)="convertRateBack()"
+            matInput
+            type="number"
+          />
+        </mat-form-field>
+      </div>
+      <div class="info">
+        <p
+          class="mat-caption"
+          *ngIf="
+            forexForm.controls.toAmount.value &&
+            forexForm.controls.fromAmount.value &&
+            forexForm.controls.toCurrency.value
+          "
+        >
+          {{ forexForm.controls.fromCurrency.value.currency }}
+          {{ forexForm.controls.fromCurrency.value.rate }} =
+          {{ forexForm.controls.toCurrency.value.currency }}
+          {{ forexForm.controls.toCurrency.value.rate | number: "1.2-2" }}
+        </p>
+        <p class="mat-caption" [ngStyle]="{ 'font-style': 'italic' }">
+          API's free tier plan is limited to EUR. Sorry.
+        </p>
+        <p class="mat-caption">
+          Last updated: {{ data.timestampDate | date: "medium" }}
+        </p>
+      </div>
+    </div>
+    <div class="actions">
+      <button
+        mat-raised-button
+        class="submit-button-one"
+        (click)="
+          currencyToBeBought = 'fromCurrency'
+        "
+        [disabled]="!forexForm.controls.toCurrency.value.currency"
+      >
+        BUY {{ forexForm.controls.fromCurrency.value.currency }}
+      </button>
+      <button
+        mat-raised-button
+        class="submit-button-two"
+        (click)="
+          currencyToBeBought = 'toCurrency'
+        "
+        [disabled]="!forexForm.controls.toCurrency.value.currency"
+      >
+        BUY {{ forexForm.controls.toCurrency.value.currency }}
+      </button>
+    </div>
+  </form>
+</div>

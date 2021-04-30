@@ -1,1 +1,104 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: max(300px, 100%);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: min(550px, 100vh);
+  padding: 1rem;
+}
+
+.buy-button {
+  background: #2afc2a;
+}
+
+.sell-button {
+  background: #f52323;
+}
+
+.query,
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.from-currency,
+.to-currency {
+  width: 100%;
+}
+
+.currency {
+  width: 30%;
+}
+
+.amount {
+  width: 70%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.submit-button-one {
+  background: #a1fca1;
+}
+
+.submit-button-two {
+  background: #01ce01;
+}
+
+@media (min-width: 426px) {
+  mat-form-field {
+    width: max(150px);
+  }
+}
+
+@media (max-width: 425px) {
+  .query,
+  .result {
+    flex-direction: column;
+  }
+  form {
+    padding: 1.5rem;
+  }
+  .currency,
+  .amount {
+    width: 100%;
+  }
+  .info {
+    max-width: 250px;
+  }
+}
+
+.transparent .mat-dialog-container {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0);
+}
