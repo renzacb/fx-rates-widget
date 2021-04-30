@@ -3,8 +3,8 @@
 1. Limited to Euro-USD,JPY,GBP,HKD,CHF,CAD,SGD,AUD,BHD,KWD,SAR,BND,IDR,THB,AED,EUR,PHP,KRW,CNY,ARS,BRL and vice versa.
 2. Limitations were caused by API Free Tier plan restrictions.
 3. Just simulated the buying and selling process.
-
-Live Demo: [Click here for the live demo.](https://fxrates.renzbarnedo.com)
+4. I cannot serve it live online because http is the only one available in Free Tier plan.
+5. Please clone, "npm install", "ng serve -o" this project to test it. Thank you.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
