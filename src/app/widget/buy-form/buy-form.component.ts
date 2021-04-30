@@ -29,7 +29,6 @@ export class BuyFormComponent implements OnInit {
     try {
       const response: any = await this.apiService.getExchangeRates();
       if (!response?.success) {
-        console.log('error');
         throw Error('cannot get rates');
       }
       this.data = response;
@@ -116,7 +115,6 @@ export class BuyFormComponent implements OnInit {
     this.utilitiesService.closeSpinner();
 
     const { fromAmount, toAmount, toCurrency } = this.forexForm.value;
-    console.log(this.forexForm.value);
     let gain = `${toCurrency.currency} ${toAmount}`;
     let lost = `${fromAmount} EUR`;
     if (this.currencyToBeBought === 'fromCurrency') {
