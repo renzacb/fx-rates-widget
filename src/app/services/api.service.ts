@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
   apiKey: string = environment.apiKey;
-  apiUrl = 'https://api.exchangeratesapi.io/v1';
+  apiUrl = 'http://api.exchangeratesapi.io/v1';
   base = 'EUR';
   symbols =
     'USD,JPY,GBP,HKD,CHF,CAD,SGD,AUD,BHD,KWD,SAR,BND,IDR,THB,AED,EUR,PHP,KRW,CNY,ARS,BRL';
